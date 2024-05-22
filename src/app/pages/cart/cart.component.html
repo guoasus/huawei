@@ -1,0 +1,48 @@
+<app-header />
+<div class="box">
+    <nz-table #rowSelectionTable [nzShowPagination]="false" [nzData]="carts">
+        <thead>
+            <tr>
+                <th [nzChecked]="checked" [nzIndeterminate]="indeterminate" nzLabel="Select all"
+                    (nzCheckedChange)="onAllChecked($event)"></th>
+                <th>商品名称</th>
+                <th>商品图片</th>
+                <th>价格</th>
+                <th>数量</th>
+                <th>总价</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (data of rowSelectionTable.data; let i = $index;track data; ) {
+                <tr>
+                    <td [nzChecked]="setOfCheckedId.has(data.id)"  [nzLabel]="data.name"
+                        (nzCheckedChange)="onItemChecked(data.id, $event)"></td>
+                    <td>{{ data.name }}</td>
+                    <td><img style="width: 100px;" [src]="data.img" alt=""></td>
+                    <td>{{ data.price }}</td>
+                    <td><input type="number" (change)="countChange($event,data)" style="width: 60px;" [value]="data.count"> </td>
+                    <td>{{ data.count*data.price }}</td>
+                </tr>
+            }
+        </tbody>
+    </nz-table>
+    <div class="address">
+        <div>
+            <div><b>收 货 人：</b> {{showUsername}}</div>
+            <div><b>手机号码 ：</b> {{showPhone}}</div>
+            <div><b>收货地址：</b> {{showAddress}}</div>
+        </div>
+        <div style="width: 200px">
+            <input style="width: 200px;margin-top: 10px;" type="text" [(ngModel)]="username" placeholder="请输入收货人">
+            <input style="width: 200px;margin-top: 10px;" type="text" [(ngModel)]="phone" placeholder="请输入手机号">
+            <input style="width: 200px;margin-top: 10px;" type="text" [(ngModel)]="address" placeholder="请输入地址">
+            <button style="margin-top: 10px;" nz-button nzType="primary" nzBlock  (click)="addAddress()">确定</button>
+        </div>
+        
+    </div>
+    <div class="jiesuan">
+        <b style="font-size: 20px;">总价: {{money}} 元</b>
+        <button nz-button nzType="primary" (click)="post()">提交订单</button>
+    </div>
+</div>
+<app-footer />

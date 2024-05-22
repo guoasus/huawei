@@ -1,0 +1,88 @@
+<header>
+    <img class="logo" src="../../../assets/logo.png" alt="">
+    <div class="nav">
+        <a [routerLink]="['/']">首页</a>
+        <a href="">华为</a>
+        <a href="">鸿蒙智行</a>
+        <a href="">华为智选</a>
+        <a href="">生态周边</a>
+    </div>
+</header>
+<div class="good">
+    <div class="tuijian">
+        <div style="width: 500px; display: flex;">
+            <input type="number" [(ngModel)]="price" nz-input placeholder="请输入价格" />
+            <button style="padding: 0 10px;" nz-button nzType="primary" nzSearch (click)="search()">搜索</button>
+        </div>
+        <h2 class="title">搜索结果</h2>
+        <ul class="list">
+            @for (good of goodList; track good) {
+                <li>
+                    <img [src]="good.img" alt="">
+                    <p>{{good.name}}</p>
+                    <span>￥{{good.price}}起</span>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-nav">
+        <ul>
+            <li>购物指南</li>
+            <li>享0分期利息</li>
+            <li>以旧换新</li>
+            <li>众测活动</li>
+            <li>企业购</li>
+            <li>O2O采购</li>
+            <li>教育购</li>
+        </ul>
+        <ul>
+            <li>售后服务</li>
+            <li>门店维修</li>
+            <li>保修政策</li>
+            <li>防伪查询</li>
+            <li>退换货政策</li>
+            <li>手机寄修服务</li>
+        </ul>
+        <ul>
+            <li>服务支持</li>
+            <li>服务店查询</li>
+            <li>维修备件价格</li>
+            <li>维修服务</li>
+            <li>上门安装</li>
+            <li>问题排查</li>
+        </ul>
+        <ul>
+            <li>特色服务</li>
+            <li>防伪查询</li>
+            <li>补购保障</li>
+            <li>以旧换新</li>
+        </ul>
+        <ul>
+            <li>关于我们</li>
+            <li>公司介绍</li>
+            <li>华为零售店</li>
+            <li>商家中心</li>
+            <li>意见反馈</li>
+            <li>规则中心</li>
+        </ul>
+        <ul>
+            <li>友情链接</li>
+            <li>华为集团</li>
+            <li>华为消费者业务</li>
+            <li>华为云</li>
+            <li>华为应用市场</li>
+            <li>华为心声社区</li>
+        </ul>
+    </div>
+    <ul class="copyright">
+        <li>
+            隐私声明 服务协议 COOKIES Copyright © 2012-2024 华为终端有限公司 版权所有 | 经营资质 | 粤ICP备19015064号|粤公网安备 44190002003939号
+        </li>
+        <li>增值电信业务经营许可证：粤B2-20190762|备案主体编号：44201919072182|粤新出网备（2021）2号|（粤）网械平台备字[2022]第00005号</li>
+        <li>互联网药品信息服务资格证（粤）-非经营性-2020-0102 | 广东省网络食品交易第三方平台备案：GDWS10168 | APP备案号: 粤ICP备19015064号-39A号</li>
+        <li>网信算备441901536982702230011号 | 网信算备441901536982704230013号</li>
+    </ul>
+</footer>

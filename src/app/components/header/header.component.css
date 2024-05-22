@@ -1,0 +1,24 @@
+header {
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 110px;
+}
+
+.nav {
+    margin-left: 100px;
+}
+
+.nav a {
+    color: #000;
+    margin: 0 30px;
+}
+
+.search {
+    width: 35px;
+    margin-left: 20px;
+}

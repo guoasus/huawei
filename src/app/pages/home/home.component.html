@@ -1,0 +1,62 @@
+<app-header />
+<div class="banner">
+    <ul class="tag">
+        @for (tag of tags; let i = $index;track i; ) {
+            <li>
+                <p><span>{{tag}}</span> <img src="../../../assets/right.png" class="right" alt=""></p>
+                <div class="hover">
+                    @for (good of hoverList[i]; track good; ) {
+                        <div>
+                            <img [src]="good.img" alt="">
+                            <span>{{good.name}}</span>
+                        </div>
+                    }
+                   
+                </div>
+            </li>
+        }
+    </ul>
+    <nz-carousel nzAutoPlay>
+        <div nz-carousel-content>
+            <img class="banner-img" src="../../../assets/banner1.webp" alt="">
+        </div>
+        <div nz-carousel-content>
+            <img class="banner-img" src="../../../assets/banner2.webp" alt="">
+        </div>
+        <div nz-carousel-content>
+            <img class="banner-img" src="../../../assets/banner3.webp" alt="">
+        </div>
+    </nz-carousel>
+</div>
+<div class="good">
+    <div class="tuijian">
+        <h2 class="title">甄选推荐</h2>
+        <ul class="list">
+            @for (good of goodList; track good) {
+                <li [routerLink]="['/detail']">
+                    <img [src]="good.img" alt="">
+                    <p>{{good.name}}</p>
+                    <p>{{good.des}}</p>
+                    <span>￥{{good.price}}起</span>
+                    <span (click)="addCart($event, good)" style="margin-left: 20px;font-size: 20px;color:#f00" nz-icon nzType="shopping-cart" nzTheme="outline"></span>
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="tuijian">
+        <h2 class="title">手机专区</h2>
+        <ul class="list">
+            @for (good of phoneList; track good) {
+                <li [routerLink]="['/detail']">
+                    <img [src]="good.img" alt="">
+                    <p>{{good.name}}</p>
+                    <p>{{good.des}}</p>
+                    <span>￥{{good.price}}起</span>
+                    <span (click)="addCart($event, good)" style="margin-left: 20px;font-size: 20px;color:#f00" nz-icon
+                        nzType="shopping-cart" nzTheme="outline"></span>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+<app-footer/>

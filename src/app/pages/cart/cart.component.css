@@ -1,0 +1,16 @@
+.box{
+    width: 1200px;
+    margin: 20px auto;
+}
+.jiesuan{
+    line-height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.address{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
